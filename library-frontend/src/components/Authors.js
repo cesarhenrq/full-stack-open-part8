@@ -11,6 +11,11 @@ const Authors = () => {
     return <div>loading...</div>;
   }
 
+  const allAuthors = result.data.allAuthors.map(({ name, born }) => ({
+    name,
+    born,
+  }));
+
   return (
     <div>
       <h2>authors</h2>
@@ -31,7 +36,7 @@ const Authors = () => {
         </tbody>
       </table>
 
-      <BirthyearForm />
+      <BirthyearForm authors={allAuthors} />
     </div>
   );
 };

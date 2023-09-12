@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 
 import { UPDATE_BIRTHYEAR, ALL_AUTHORS } from "../utils/queries";
 
-const BirthyearForm = ({ authors }) => {
+const BirthyearForm = () => {
   const [name, setName] = useState("");
   const [born, setBorn] = useState(0);
 

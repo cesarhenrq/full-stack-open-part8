@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Menu = () => {
+const Menu = ({ token, logout }) => {
   return (
     <div>
       <button>
@@ -9,9 +9,20 @@ const Menu = () => {
       <button>
         <Link to='/books'>books</Link>
       </button>
-      <button>
-        <Link to='/add'>add book</Link>
-      </button>
+
+      {!token && (
+        <button>
+          <Link to='/login'>login</Link>
+        </button>
+      )}
+      {token && (
+        <>
+          <button>
+            <Link to='/add'>add book</Link>
+          </button>
+          <button onClick={logout}>logout</button>
+        </>
+      )}
     </div>
   );
 };

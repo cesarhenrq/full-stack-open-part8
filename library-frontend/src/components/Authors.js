@@ -4,7 +4,7 @@ import { ALL_AUTHORS } from "../utils/queries";
 
 import { BirthyearForm } from "./";
 
-const Authors = () => {
+const Authors = ({ token }) => {
   const result = useQuery(ALL_AUTHORS);
 
   if (result.loading) {
@@ -35,8 +35,7 @@ const Authors = () => {
           ))}
         </tbody>
       </table>
-
-      <BirthyearForm authors={allAuthors} />
+      {token && <BirthyearForm authors={allAuthors} />}
     </div>
   );
 };

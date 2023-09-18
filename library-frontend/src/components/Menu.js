@@ -20,6 +20,9 @@ const Menu = ({ token, logout }) => {
           <button>
             <Link to='/add'>add book</Link>
           </button>
+          <button>
+            <Link to='/recommendations'>recommendations</Link>
+          </button>
           <button onClick={logout}>logout</button>
         </>
       )}

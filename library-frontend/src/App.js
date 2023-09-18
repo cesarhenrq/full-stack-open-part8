@@ -2,7 +2,14 @@ import { useState, useEffect } from "react";
 
 import { Routes, Route, useNavigate } from "react-router-dom";
 
-import { Authors, Books, NewBook, Menu, LoginForm } from "./components";
+import {
+  Authors,
+  Books,
+  NewBook,
+  Menu,
+  LoginForm,
+  Recommendations,
+} from "./components";
 
 const App = () => {
   const [token, setToken] = useState(null);
@@ -29,7 +36,12 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Authors token={token} />} />
         <Route path='/books' element={<Books />} />
-        {token && <Route path='/add' element={<NewBook />} />}
+        {token && (
+          <>
+            <Route path='/add' element={<NewBook />} />
+            <Route path='/recommendations' element={<Recommendations />} />
+          </>
+        )}
         <Route path='/login' element={<LoginForm setToken={setToken} />} />
       </Routes>
     </div>

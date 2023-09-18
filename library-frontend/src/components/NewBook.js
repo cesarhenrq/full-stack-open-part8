@@ -13,6 +13,9 @@ const NewBook = () => {
 
   const [createBook] = useMutation(CREATE_BOOK, {
     refetchQueries: [{ query: ALL_BOOKS }, { query: ALL_AUTHORS }],
+    onError: (error) => {
+      console.log(error);
+    },
   });
 
   const submit = async (event) => {
@@ -66,7 +69,7 @@ const NewBook = () => {
             add genre
           </button>
         </div>
-        <div>genres: {genres.join(" ")}</div>
+        <div>genres: {genres.join(", ")}</div>
         <button type='submit'>create book</button>
       </form>
     </div>

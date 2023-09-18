@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Routes, Route, useNavigate } from "react-router-dom";
 
@@ -14,6 +14,13 @@ const App = () => {
     localStorage.clear();
     navigate("/");
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("library-user-token");
+    if (token) {
+      setToken(token);
+    }
+  }, []);
 
   return (
     <div>

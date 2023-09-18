@@ -7,17 +7,19 @@ import { ALL_BOOKS } from "../utils/queries";
 const Books = () => {
   const [genre, setGenre] = useState("");
 
-  const result = useQuery(ALL_BOOKS);
+  const result = useQuery(ALL_BOOKS, {
+    variables: { genre },
+  });
 
-  if (result.loading) {
+  const result2 = useQuery(ALL_BOOKS);
+
+  if (result.loading || result2.loading) {
     return <div>loading...</div>;
   }
 
-  const books = result.data.allBooks.filter((book) =>
-    genre ? book.genres.includes(genre) : book
-  );
+  const books = result.data.allBooks;
 
-  const allGenres = result.data.allBooks.reduce((acc, { genres }) => {
+  const allGenres = result2.data.allBooks.reduce((acc, { genres }) => {
     return [...acc, ...genres];
   }, []);
 

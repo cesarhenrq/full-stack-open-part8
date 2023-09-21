@@ -1,8 +1,10 @@
 import { useQuery } from "@apollo/client";
 
-import { ALL_AUTHORS } from "../utils/queries";
+import { Queries } from "../utils/graphql";
 
 import { BirthyearForm } from "./";
+
+const { ALL_AUTHORS } = Queries;
 
 const Authors = ({ token }) => {
   const result = useQuery(ALL_AUTHORS);

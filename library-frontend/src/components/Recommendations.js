@@ -1,6 +1,8 @@
 import { useQuery } from "@apollo/client";
 
-import { ME, ALL_BOOKS } from "../utils/queries";
+import { Queries } from "../utils/graphql";
+
+const { ME, ALL_BOOKS } = Queries;
 
 const Recommendations = () => {
   const result = useQuery(ME);

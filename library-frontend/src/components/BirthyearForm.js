@@ -2,7 +2,10 @@ import { useState } from "react";
 
 import { useMutation } from "@apollo/client";
 
-import { UPDATE_BIRTHYEAR, ALL_AUTHORS } from "../utils/queries";
+import { Queries, Mutations } from "../utils/graphql";
+
+const { ALL_AUTHORS } = Queries;
+const { UPDATE_BIRTHYEAR } = Mutations;
 
 const BirthyearForm = ({ authors }) => {
   const [name, setName] = useState("");

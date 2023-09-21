@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
 
-import { LOGIN } from "../utils/mutations";
+import { Mutations } from "../utils/graphql";
+
+const { LOGIN } = Mutations;
 
 const LoginForm = ({ setToken }) => {
   const [username, setUsername] = useState("");

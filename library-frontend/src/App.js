@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import { Routes, Route, useNavigate } from "react-router-dom";
 
+import { useSubscription } from "@apollo/client";
+
 import {
   Authors,
   Books,
@@ -11,10 +13,21 @@ import {
   Recommendations,
 } from "./components";
 
+import { Subscriptions } from "./utils/graphql";
+
+const { BOOK_ADDED } = Subscriptions;
+
 const App = () => {
   const [token, setToken] = useState(null);
 
   const navigate = useNavigate();
+
+  useSubscription(BOOK_ADDED, {
+    onSubscriptionData: ({ subscriptionData }) => {
+      const { bookAdded } = subscriptionData.data;
+      window.alert(`New book added: ${bookAdded.title}`);
+    },
+  });
 
   const handleLogout = () => {
     setToken(null);

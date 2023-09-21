@@ -2,7 +2,10 @@ import { useState } from "react";
 
 import { useMutation } from "@apollo/client";
 
-import { CREATE_BOOK, ALL_BOOKS, ALL_AUTHORS } from "../utils/queries";
+import { Queries, Mutations } from "../utils/graphql";
+
+const { ALL_BOOKS, ALL_AUTHORS } = Queries;
+const { CREATE_BOOK } = Mutations;
 
 const NewBook = () => {
   const [title, setTitle] = useState("");

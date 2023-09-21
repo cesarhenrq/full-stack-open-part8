@@ -2,7 +2,9 @@ import { useState } from "react";
 
 import { useQuery } from "@apollo/client";
 
-import { ALL_BOOKS } from "../utils/queries";
+import { Queries } from "../utils/graphql";
+
+const { ALL_BOOKS } = Queries;
 
 const Books = () => {
   const [genre, setGenre] = useState("");

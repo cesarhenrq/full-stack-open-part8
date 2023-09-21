@@ -1,11 +1,12 @@
 import { gql } from "@apollo/client";
 
+import { AUTHOR_DETAILS } from "../fragments";
+
 export const ALL_AUTHORS = gql`
   query {
     allAuthors {
-      name
-      born
-      bookCount
+      ...AuthorDetails
     }
   }
+  ${AUTHOR_DETAILS}
 `;

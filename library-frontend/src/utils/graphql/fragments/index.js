@@ -1,0 +1,4 @@
+import { AUTHOR_DETAILS } from "./AUTHOR_DETAILS";
+import { BOOK_DETAILS } from "./BOOK_DETAILS";
+
+export { AUTHOR_DETAILS, BOOK_DETAILS };

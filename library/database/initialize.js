@@ -21,4 +21,6 @@ const initialize = () => {
     });
 };
 
+mongoose.set("debug", true);
+
 module.exports = initialize;
